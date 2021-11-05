@@ -28,4 +28,7 @@ class Config(object):
     PROCESS_MAX_TIMEOUT = 3600
     # watermark file
     DEF_WATER_MARK_FILE = ""
-    BANNED_USERS = os.environ.get("BANNED_USERS")
+    
+
+    BANNED_USERS = set(int(x) for x in os.environ.get("BANNED_USERS", "").split())
+    # the download location, where the HTTP Server runs
