@@ -26,36 +26,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@pyrogram.Client.on_message(pyrogram.filters.command(["help"]))
-async def help_user(bot, update):
-    if update.from_user.id in Config.AUTH_USERS:
-        # logger.info(update)
-        await bot.send_message(
-            chat_id=update.chat.id,
-            text=Translation.HELP_USER,
-            parse_mode="html",
-            disable_web_page_preview=True,
-            reply_to_message_id=update.message_id
-        )
-
-
-@pyrogram.Client.on_message(pyrogram.filters.command(["start"]))
+@Client.on_message(filters.command(["start"]) & filters.private)
 async def start(bot, update):
     if update.from_user.id in Config.AUTH_USERS:
         # logger.info(update)
-        await bot.send_message(
-            chat_id=update.chat.id,
-            text=Translation.START_TEXT.format(update.from_user.first_name),
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            "Source", url="https://github.com/X-Gorn/X-URL-Uploader"
-                        ),
-                        InlineKeyboardButton("Project Channel", url="https://t.me/xTeamBots"),
-                    ],
-                    [InlineKeyboardButton("Author", url="https://t.me/xgorn")],
-                ]
-            ),
-            reply_to_message_id=update.message_id
-        )
