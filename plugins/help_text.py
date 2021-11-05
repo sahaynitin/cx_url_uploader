@@ -30,3 +30,8 @@ from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboa
 async def start(bot, update):
     if update.from_user.id in Config.AUTH_USERS:
         # logger.info(update)
+    await update.reply_text(
+        text=Translation.START_TEXT.format(update.from_user.mention),
+        disable_web_page_preview=True,
+        reply_markup=Translation.START_BUTTONS
+    )
