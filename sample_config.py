@@ -28,9 +28,10 @@ class Config(object):
     PROCESS_MAX_TIMEOUT = 3600
     # watermark file
     DEF_WATER_MARK_FILE = ""
-        UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
+    
     # Log Channel ID
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
 
     BANNED_USERS = set(int(x) for x in os.environ.get("BANNED_USERS", "").split())
     # the download location, where the HTTP Server runs
+    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
