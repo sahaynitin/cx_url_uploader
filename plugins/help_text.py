@@ -26,7 +26,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@Client.on_message(filters.command(["start"]) & filters.private)
+@pyrogram.Client.on_message(pyrogram.filters.command(["start"]) & filters.private)
 async def start(bot, update):
     if update.from_user.id in Config.AUTH_USERS:
         # logger.info(update)
