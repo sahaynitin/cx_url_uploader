@@ -26,7 +26,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@pyrogram.Client.on_message(pyrogram.filters.command(["start"]) & filters.private)
+@pyrogram.Client.on_message(pyrogram.filters.command(["start"]))
 async def start(bot, update):
     await update.reply_text(
         text=Translation.START_TEXT.format(update.from_user.mention),
