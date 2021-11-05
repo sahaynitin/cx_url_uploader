@@ -36,5 +36,4 @@ async def start(bot, update):
             chat_id=update.chat.id,
             text=Translation.START_TEXT.format(update.from_user.first_name),
             reply_markup=Translation.START_BUTTONS
-            reply_to_message_id=update.message_id
         )
