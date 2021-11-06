@@ -209,8 +209,8 @@ async def youtube_dl_call_back(bot, update):
             )
             # get the correct width, height, and duration for videos greater than 10MB
             # ref: message from @BotSupport
-            width = 0
-            height = 0
+            width = 640
+            height = 360
             duration = 0
             if tg_send_type != "file":
                 metadata = extractMetadata(createParser(download_directory))
@@ -219,8 +219,8 @@ async def youtube_dl_call_back(bot, update):
                         duration = metadata.get('duration').seconds
             # get the correct width, height, and duration for videos greater than 10MB
             if os.path.exists(thumb_image_path):
-                width = 0
-                height = 0
+                width = 640
+                height = 360
                 metadata = extractMetadata(createParser(thumb_image_path))
                 if metadata.has("width"):
                     width = metadata.get("width")
